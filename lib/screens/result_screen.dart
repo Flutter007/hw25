@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hw25/widgets/restart_button.dart';
+import 'package:hw25/widgets/statistic_button.dart';
 
 class ResultScreen extends StatefulWidget {
-  final void Function() goHome;
+  final void Function() goToStat;
   final String? selectedAct;
   final String? opponentAct;
   final String? result;
+  final bool isLost;
 
   const ResultScreen({
     super.key,
-    required this.goHome,
+    required this.goToStat,
     required this.selectedAct,
     required this.opponentAct,
     required this.result,
+    required this.isLost,
   });
 
   @override
@@ -27,13 +29,22 @@ class _ResultScreenState extends State<ResultScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            'Вы : ${widget.selectedAct}\nПротивник :${widget.opponentAct}\nРезультат:${widget.result}',
-            style: GoogleFonts.notoSans(color: Colors.black87, fontSize: 30),
-            textAlign: TextAlign.center,
+          Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(40)),
+            child: Text(
+              'Result : ${widget.result}\nYou : ${widget.selectedAct}\nOpponent : ${widget.opponentAct}',
+              style: GoogleFonts.notoSans(
+                color:
+                    widget.isLost ? Colors.red.shade900 : Colors.green.shade900,
+                fontSize: 30,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
           SizedBox(height: 20),
-          RestartButton(restartGame: widget.goHome),
+          StatisticButton(goToStat: widget.goToStat),
         ],
       ),
     );

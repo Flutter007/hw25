@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           Image.asset(
             'assets/images/game.png',
-            width: 300,
+            width: double.infinity,
             height: 200,
           ),
           Text(

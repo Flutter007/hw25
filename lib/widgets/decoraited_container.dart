@@ -14,7 +14,7 @@ class DecoraitedContainer extends StatelessWidget {
             'Rock-paper-scissors',
             style: GoogleFonts.aladin(
               color: Colors.black87,
-              fontSize: 25,
+              fontSize: 28,
               fontWeight: FontWeight.bold,
             ),
           ),

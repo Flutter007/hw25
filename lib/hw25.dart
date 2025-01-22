@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:hw25/screens/home_screen.dart';
 import 'package:hw25/screens/result_screen.dart';
+import 'package:hw25/screens/statistic_screen.dart';
 import 'package:hw25/widgets/decoraited_container.dart';
 
 class Hw25 extends StatefulWidget {
@@ -17,6 +18,10 @@ class _Hw25State extends State<Hw25> {
   String? selectedAction;
   String? opponentAction;
   String? result;
+  bool isLost = false;
+  int countTie = 0;
+  int countLose = 0;
+  int countWin = 0;
 
   var currentScreen = 'home';
   void goToRes(String action) {
@@ -27,12 +32,16 @@ class _Hw25State extends State<Hw25> {
       opponentAction = actions[randInx];
       if (selectedAction == opponentAction) {
         result = 'Tie';
+        countTie++;
       } else if ((action == 'Paper!' && opponentAction == 'Rock!') ||
           (action == 'Scissors!' && opponentAction == 'Paper!') ||
           (action == 'Rock!' && opponentAction == 'Scissors!')) {
         result = 'You won!';
+        countWin++;
       } else {
         result = 'You lose!';
+        isLost = true;
+        countLose++;
       }
     });
   }
@@ -46,16 +55,29 @@ class _Hw25State extends State<Hw25> {
     });
   }
 
+  void goToStatist() {
+    setState(() {
+      currentScreen = 'stat';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget screen;
     if (currentScreen == 'results') {
       screen = ResultScreen(
-        goHome: goHome,
+        goToStat: goToStatist,
         selectedAct: selectedAction,
         opponentAct: opponentAction,
         result: result,
+        isLost: isLost,
       );
+    } else if (currentScreen == 'stat') {
+      screen = StatisticScreen(
+          countWin: countWin,
+          countLose: countLose,
+          countTie: countTie,
+          restartGame: goHome);
     } else {
       screen = HomeScreen(
         goToRes: goToRes,
