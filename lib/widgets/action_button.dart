@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ActionButton extends StatelessWidget {
-  final void Function() doAction;
+  final void Function(String) doAction;
   final String nameOfAction;
   const ActionButton(
       {super.key, required this.doAction, required this.nameOfAction});
@@ -15,7 +15,7 @@ class ActionButton extends StatelessWidget {
           width: 160,
           height: 40,
           child: ElevatedButton.icon(
-            onPressed: doAction,
+            onPressed: () => doAction(nameOfAction),
             label: Text(
               nameOfAction,
               style: GoogleFonts.aleo(fontSize: 20, color: Colors.yellowAccent),
