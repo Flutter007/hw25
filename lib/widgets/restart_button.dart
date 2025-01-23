@@ -12,23 +12,24 @@ class RestartButton extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 50),
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18),
-          ),
-        ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(27),
+            ),
+            side: BorderSide.none,
+            backgroundColor: Colors.white),
         onPressed: restartGame,
         label: Text(
           'Restart!',
-          style: GoogleFonts.cabinCondensed(
-            color: Colors.yellow.shade700,
+          style: GoogleFonts.alexandria(
+            color: Colors.red,
             fontWeight: FontWeight.bold,
             fontSize: 35,
           ),
         ),
         icon: Icon(
           Icons.restart_alt_rounded,
-          color: Colors.green,
-          size: 29,
+          color: Colors.black87,
+          size: 30,
         ),
       ),
     );

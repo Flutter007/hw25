@@ -28,10 +28,10 @@ class _StatisticScreenState extends State<StatisticScreen> {
         children: [
           Text(
             'Number of defeats : ${widget.countLose}\nNumber of wins : ${widget.countWin}\nNumber of Ties : ${widget.countTie}',
-            style: GoogleFonts.aladin(
-              color: Colors.white,
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
+            style: GoogleFonts.bebasNeue(
+              color: Colors.black87,
+              fontSize: 47,
+              fontStyle: FontStyle.italic,
             ),
           ),
           SizedBox(height: 120),

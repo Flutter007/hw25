@@ -26,8 +26,8 @@ class DecoraitedContainer extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.grey,
-                  Colors.yellowAccent.shade400,
+                  Colors.white,
+                  Colors.yellowAccent.shade700,
                 ]),
           ),
           child: child,

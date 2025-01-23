@@ -30,17 +30,19 @@ class _ResultScreenState extends State<ResultScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(33),
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(40)),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(40),
+            ),
             child: Text(
+              textAlign: TextAlign.center,
               'Result : ${widget.result}\nYou : ${widget.selectedAct}\nOpponent : ${widget.opponentAct}',
-              style: GoogleFonts.notoSans(
+              style: GoogleFonts.anton(
                 color:
                     widget.isLost ? Colors.red.shade900 : Colors.green.shade900,
-                fontSize: 30,
+                fontSize: 35,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           SizedBox(height: 20),

@@ -5,8 +5,11 @@ import 'package:hw25/widgets/action_button.dart';
 class HomeScreen extends StatelessWidget {
   final void Function(String) goToRes;
   final List<String> namesOfAction;
-  const HomeScreen(
-      {super.key, required this.goToRes, required this.namesOfAction});
+  const HomeScreen({
+    super.key,
+    required this.goToRes,
+    required this.namesOfAction,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +20,14 @@ class HomeScreen extends StatelessWidget {
           Image.asset(
             'assets/images/game.png',
             width: double.infinity,
-            height: 200,
+            height: 280,
           ),
           Text(
             textAlign: TextAlign.center,
             "Let's play\nSelect your action!",
             style: GoogleFonts.aboreto(
                 color: Colors.black87,
-                fontSize: 30,
+                fontSize: 32,
                 fontWeight: FontWeight.bold,
                 wordSpacing: 9),
           ),

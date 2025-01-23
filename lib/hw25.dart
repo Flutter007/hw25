@@ -33,11 +33,13 @@ class _Hw25State extends State<Hw25> {
       if (selectedAction == opponentAction) {
         result = 'Tie';
         countTie++;
+        isLost = false;
       } else if ((action == 'Paper!' && opponentAction == 'Rock!') ||
           (action == 'Scissors!' && opponentAction == 'Paper!') ||
           (action == 'Rock!' && opponentAction == 'Scissors!')) {
         result = 'You won!';
         countWin++;
+        isLost = false;
       } else {
         result = 'You lose!';
         isLost = true;
